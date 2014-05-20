@@ -35,7 +35,6 @@ const int M=input.cols;  //dimention
  cv::Mat E;
  cv::Mat temp=cv::Mat::eye(M,M,CV_64FC1);
  cv::Mat temp2;
- cv::Mat temp3;
  
  cov=input.t()*input/N;
  cv::eigen(cov,D,E);
@@ -64,7 +63,6 @@ const int M=input.cols;  //dimention
  cv::Mat D2;
  cv::Mat temp=cv::Mat::eye(M,M,CV_64FC1);
  cv::Mat temp2;
- cv::Mat temp3;
  cv::Mat E2;
 
  cov=input.t()*input/N;
@@ -75,10 +73,10 @@ const int M=input.cols;  //dimention
  for(int i=0;i<M;i++)
  { temp.at<double>(i,i)=D2.at<double>(0,i);}
  
- temp2=E2.t()*temp.inv()*E2*input.t();
+   temp2=E2.t()*temp.inv()*E2*input.t();
  
  
-output=temp2.t();
+  output=temp2.t();
  } 	 
  
 
@@ -133,7 +131,7 @@ void runICA(cv::Mat input, cv::Mat &output,cv::Mat &W,int snum)     //output =In
 			 P=P-temp6;
 	     	}
 			 double Pnorm=cv::norm(P,4);
-             P=P/Pnorm;	
+                         P=P/Pnorm;	
 			 
 			 double j1=cv::norm(P-P2,4);
 			 double j2=cv::norm(P+P2,4);
