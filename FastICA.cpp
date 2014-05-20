@@ -41,7 +41,7 @@ const int M=input.cols;  //dimention
  cv::sqrt(D,D);
  
  for(int i=0;i<M;i++)
- { temp.at<double>(i,i)=D.at<double>(0,i);}
+ { temp.at<double>(i,i)=D.at<double>(i,0);}
  
  temp2=E.t()*temp.inv()*E*input.t();
  
@@ -71,7 +71,7 @@ const int M=input.cols;  //dimention
  E=E2.t();
 
  for(int i=0;i<M;i++)
- { temp.at<double>(i,i)=D2.at<double>(0,i);}
+ { temp.at<double>(i,i)=D2.at<double>(i,0);}
  
    temp2=E2.t()*temp.inv()*E2*input.t();
  
