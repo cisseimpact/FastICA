@@ -89,11 +89,11 @@ void runICA(cv::Mat input, cv::Mat &output,cv::Mat &W,int snum)     //output =In
         const int maxIterations=1000;
         const double epsilon=0.0001;
         
-        if(M<snum)
+        if(N<snum)
         { snum=M;
           printf(" Can't estimate more independent components than dimension of data ");}
        
-       cv::Mat R(N,snum,CV_64FC1);
+       cv::Mat R(snum,N,CV_64FC1);
        cv::randn(R, cv::Scalar(0), cv::Scalar(1));
        cv::Mat ONE=cv::Mat::ones(M,1,CV_64FC1);
     
@@ -146,7 +146,7 @@ void runICA(cv::Mat input, cv::Mat &output,cv::Mat &W,int snum)     //output =In
 			  }
             }
           }
-          output=input*R;
+          output=R*input.t();
           W=R;
   }        
 
