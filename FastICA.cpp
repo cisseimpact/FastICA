@@ -43,7 +43,7 @@ const int M=input.cols;  //dimention
  for(int i=0;i<M;i++)
  { temp.at<double>(i,i)=D.at<double>(i,0);}
  
- temp2=E.t()*temp.inv()*E*input.t();
+ temp2=E*temp.inv()*E.t()*input.t();
  
  
 output=temp2.t();
@@ -73,7 +73,7 @@ const int M=input.cols;  //dimention
  for(int i=0;i<M;i++)
  { temp.at<double>(i,i)=D2.at<double>(i,0);}
  
-   temp2=E2.t()*temp.inv()*E2*input.t();
+   temp2=E2*temp.inv()*E2.t()*input.t();
  
  
   output=temp2.t();
