@@ -106,7 +106,8 @@ void runICA(cv::Mat input, cv::Mat &output,cv::Mat &W,int snum)     //output =In
           while(iteration<=maxIterations)
           { 
             iteration++;
-           	cv::Mat P2=P;
+           	cv::Mat P2;
+			P.copyTo(P2);
            	cv::Mat temp1,temp2,temp3,temp4;
            	temp1=P*input.t();
            	cv::pow(temp1,3,temp2);
